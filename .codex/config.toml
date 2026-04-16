@@ -1,0 +1,70 @@
+model = "gpt-5.4"
+
+[analytics]
+enabled = false
+
+[features]
+multi_agent = true
+
+[agents]
+max_threads = 10
+max_depth = 3
+
+[agents.document-writer]
+description = "기술 문서 및 사양서 작성을 전담하는 에이전트. AI가 컨텍스트로 활용하고 사람이 정확하게 검증할 수 있도록 엄격한 Markdown 구조와 모호성 없는 문장을 강제하여 문서를 작성합니다."
+config_file = "agents/document-writer.toml"
+
+[agents.product-builder]
+description = "훌륭한 제품을 만들기 위한 의사결정에 기여하는 에이전트. 엔지니어링, 프로덕트, 디자인 관점을 종합하여 제품의 본질적인 가치를 훼손하는 요소를 방어하고 구조적 해자를 갖춘 제품을 설계할 때 사용하세요."
+config_file = "agents/product-builder.toml"
+
+[agents.project-reviewer]
+description = "프로젝트 빌더의 제안, 태스크 기획, 아키텍처 설계를 비판적으로 검토하는 리뷰어 에이전트. 논리적 모순, 실패 가능성, 리스크, 트레이드오프, 인지 편향을 분석합니다."
+config_file = "agents/project-reviewer.toml"
+
+[agents.decision-brake-reviewer]
+description = "중요한 의사결정에 브레이크를 걸어 논리적 허점, 리스크, 더 나은 대안, 가산편향, 경직성을 압박 검토하는 범용 리뷰 에이전트입니다."
+config_file = "agents/decision-brake-reviewer.toml"
+
+[agents.implementation-brake-reviewer]
+description = "이미 작성된 구현을 ship 전에 검토해 correctness, regression, edge case, test gap, 과도한 복잡도를 압박 점검하는 구현 리뷰 에이전트입니다."
+config_file = "agents/implementation-brake-reviewer.toml"
+
+[agents.task-master]
+description = "프로젝트 빌더와 리뷰어가 합의한 작업을 실행 가능한 단위로 분해하고, 의존성, 우선순위, 상태를 포함한 작업 지시서를 생성하는 에이전트입니다."
+config_file = "agents/task-master.toml"
+
+[agents.task-reviewer]
+description = "태스크 스펙과 계약을 강화하여 구현 에이전트의 얕은 해결을 방지하고, 명시적 기술 제약과 E2E 테스트 의무를 강제하는 리뷰어입니다."
+config_file = "agents/task-reviewer.toml"
+
+[agents.code-reviewer]
+description = "Primary merge-gate reviewer for correctness, regressions, completeness, and merge safety."
+config_file = "agents/code-reviewer.toml"
+
+[agents.testing-reviewer]
+description = "Test quality reviewer focused on coverage gaps, negative paths, edge cases, and merge confidence."
+config_file = "agents/testing-reviewer.toml"
+
+[agents.security-reviewer]
+description = "Security reviewer for trust boundaries, auth/authz, injection defense, secret handling, and validation regressions."
+config_file = "agents/security-reviewer.toml"
+
+[agents.verifier]
+description = "Verification specialist for checking implementation against spec.md, contracts.md, code, and executed tests."
+config_file = "agents/verifier.toml"
+
+[agents.context-synchronizer]
+description = "Document consistency manager that keeps AGENTS.md, DESIGN.md, docs, specs, and .codex guidance aligned when assumptions change."
+config_file = "agents/context-synchronizer.toml"
+
+[agents.staff-engineer]
+description = "Primary code implementer. Writes code according to given specs, acts as a staff engineer for code implementation, and modifies code proactively based on code review feedback."
+config_file = "agents/staff-engineer.toml"
+
+[sandbox_workspace_write]
+network_access = true
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]

@@ -1,0 +1,66 @@
+model = "gpt-5.4"
+
+[analytics]
+enabled = false
+
+[features]
+multi_agent = true
+
+[agents]
+max_threads = 10
+max_depth = 3
+
+[agents.document-writer]
+description = "Technical documentation specialist for precise specs, contracts, and implementation-facing docs."
+config_file = "agents/document-writer.toml"
+
+[agents.product-builder]
+description = "Product decision partner for shaping scope, priorities, and value before implementation."
+config_file = "agents/product-builder.toml"
+
+[agents.project-reviewer]
+description = "Critical reviewer for plans, architecture, and project-level tradeoffs."
+config_file = "agents/project-reviewer.toml"
+
+[agents.decision-brake-reviewer]
+description = "Independent reviewer for stress-testing important decisions."
+config_file = "agents/decision-brake-reviewer.toml"
+
+[agents.implementation-brake-reviewer]
+description = "Implementation reviewer for correctness, regression, edge cases, and complexity."
+config_file = "agents/implementation-brake-reviewer.toml"
+
+[agents.task-master]
+description = "Task decomposition agent for turning accepted specs into executable work."
+config_file = "agents/task-master.toml"
+
+[agents.task-reviewer]
+description = "Task contract reviewer that strengthens technical constraints and verification obligations."
+config_file = "agents/task-reviewer.toml"
+
+[agents.code-reviewer]
+description = "Primary merge-gate reviewer for correctness, regressions, completeness, and merge safety."
+config_file = "agents/code-reviewer.toml"
+
+[agents.testing-reviewer]
+description = "Test quality reviewer focused on coverage gaps, negative paths, edge cases, and merge confidence."
+config_file = "agents/testing-reviewer.toml"
+
+[agents.security-reviewer]
+description = "Security reviewer for trust boundaries, auth/authz, injection defense, secret handling, and validation regressions."
+config_file = "agents/security-reviewer.toml"
+
+[agents.verifier]
+description = "Verification specialist for checking implementation against spec.md, contracts.md, code, and executed tests."
+config_file = "agents/verifier.toml"
+
+[agents.context-synchronizer]
+description = "Document consistency manager that keeps AGENTS.md, DESIGN.md, docs, specs, and .codex guidance aligned when assumptions change."
+config_file = "agents/context-synchronizer.toml"
+
+[agents.staff-engineer]
+description = "Primary code implementer for production-ready changes and review follow-up."
+config_file = "agents/staff-engineer.toml"
+
+[sandbox_workspace_write]
+network_access = true
