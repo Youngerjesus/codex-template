@@ -94,14 +94,14 @@ This file is the repository-wide operating contract for agents and human collabo
 - Root `README.md`: project entrypoint and onboarding
 - Root `AGENTS.md`: operating rules and execution contract
 - Root `DESIGN.md`: optional design-system and UI SSOT for UI-bearing projects
-- `main/docs/project_overview.md`: business, product, and strategy SSOT seed
-- `main/docs/tech_stack.md`: chosen runtime, tooling, and delivery stack
-- `main/specs/`: feature-level specs and contracts
-- `main/work_queue/progress.md`: project progress index
-- `main/contexts/`: temporary task artifacts
+- `docs/project_overview.md`: business, product, and strategy SSOT seed
+- `docs/tech_stack.md`: chosen runtime, tooling, and delivery stack
+- `specs/`: feature-level specs and contracts
+- `work_queue/progress.md`: project progress index
+- `contexts/`: temporary task artifacts
 
 ## Local Dev And Verification
 
-- Define the real local development commands in `README.md` or `main/docs/tech_stack.md`.
+- Define the real local development commands in `README.md` or `docs/tech_stack.md`.
 - Automation-friendly verification commands should be non-interactive when possible.
 - Do not recommend environment or workflow patterns that cannot return control cleanly to the caller.

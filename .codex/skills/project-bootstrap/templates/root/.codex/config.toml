@@ -18,6 +18,10 @@ config_file = "agents/document-writer.toml"
 description = "Product decision partner for shaping scope, priorities, and value before implementation."
 config_file = "agents/product-builder.toml"
 
+[agents.architect]
+description = "Software architecture specialist for system design, scalability, and technical decision-making. Use PROACTIVELY when planning new features, refactoring large systems, or making architectural decisions."
+config_file = "agents/architect.toml"
+
 [agents.project-reviewer]
 description = "Critical reviewer for plans, architecture, and project-level tradeoffs."
 config_file = "agents/project-reviewer.toml"
@@ -61,6 +65,34 @@ config_file = "agents/context-synchronizer.toml"
 [agents.staff-engineer]
 description = "Primary code implementer for production-ready changes and review follow-up."
 config_file = "agents/staff-engineer.toml"
+
+[agents.qa-engineer]
+description = "전문 테스터/품질 보증 에이전트. pytest(백엔드 유닛/통합), Playwright(프론트엔드 E2E) 테스트 코드를 작성합니다. 새 기능 구현, 버그 수정, 리팩토링 후 PROACTIVELY 사용하세요."
+config_file = "agents/qa-engineer.toml"
+
+[agents.maintainability-reviewer]
+description = "Expert code reviewer specialized in readability, architectural consistency, and maintainability."
+config_file = "agents/maintainability-reviewer.toml"
+
+[agents.red-team-reviewer]
+description = "Anti-bias and mutation testing specialist. Aggressively identifies over-engineering, dead code, and additive bias. Demands absolute minimalism and strict adherence to architectural constraints."
+config_file = "agents/red-team-reviewer.toml"
+
+[agents.database-reviewer]
+description = "PostgreSQL database specialist for query optimization, schema design, security, and performance. Use PROACTIVELY when writing SQL, creating migrations, designing schemas, or troubleshooting database performance. Incorporates Supabase best practices."
+config_file = "agents/database-reviewer.toml"
+
+[agents.performance-reviewer]
+description = "Expert code reviewer specializing in system performance, preventing premature optimizations, and identifying critical bottlenecks."
+config_file = "agents/performance-reviewer.toml"
+
+[agents.api-reviewer]
+description = "API design and contract review specialist. Use PROACTIVELY when designing REST/GraphQL APIs, reviewing endpoint contracts, or validating request/response schemas. Ensures consistency, RESTful best practices, and backward compatibility."
+config_file = "agents/api-reviewer.toml"
+
+[agents.ui-ux-reviewer]
+description = "프론트엔드 인터랙션/접근성/UX 전문가. Framer Motion 애니메이션, 모바일 반응형, 웹 접근성(a11y), Core Web Vitals를 집중 리뷰합니다. UI 컴포넌트 변경, 페이지 레이아웃 수정, 애니메이션 추가 시 PROACTIVELY 사용하세요."
+config_file = "agents/ui-ux-reviewer.toml"
 
 [sandbox_workspace_write]
 network_access = true
