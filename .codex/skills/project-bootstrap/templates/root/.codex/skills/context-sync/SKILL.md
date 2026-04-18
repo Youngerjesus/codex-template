@@ -17,8 +17,8 @@ Use this skill when a policy, architecture decision, requirement, or terminology
    - `.codex/**`
    - `docs/**`
    - `specs/**`
-   - `main/docs/**`
-   - `main/specs/**`
+   - `repo_name/docs/**`
+   - `repo_name/specs/**`
 3. Filter out irrelevant matches and archives.
 4. Update only the files that actually encode the outdated assumption.
 5. Report:

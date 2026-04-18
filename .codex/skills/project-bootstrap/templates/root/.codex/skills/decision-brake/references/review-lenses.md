@@ -1,23 +1,102 @@
 # Review Lenses
 
-Use only the lenses that materially change the decision.
+이 문서는 `decision-brake`의 긴 체크리스트가 아니라, 빠르게 방향에 브레이크를 거는 기본 질문과 심층 사고 프레임의 경계선을 정의합니다.
+모든 질문을 다 쓰는 것이 목적이 아닙니다.
+현재 결정의 품질을 가장 크게 바꿀 질문만 골라 사용합니다.
 
-## Problem Legitimacy
+## Base Brake Questions
 
-- Is this solving the real problem or a proxy problem?
-- Is the urgency real?
+기본 `decision-brake`는 아래 질문을 우선 사용합니다.
 
-## Logic And Evidence
+### 1. Problem Legitimacy
 
-- Are conclusions outrunning the evidence?
-- Which assumptions are still unproven?
+- 이 결정은 진짜 문제를 푸는가, 아니면 표면 증상을 만지는가?
+- 지금 결정을 내려야 하는 이유가 실제로 존재하는가?
+- urgency 가 착시일 가능성은 없는가?
 
-## Leaner Alternative
+### 2. Logic and Evidence
 
-- What is the smallest, cheapest, and most reversible alternative?
-- What can be removed rather than added?
+- 결론이 전제보다 앞서가고 있지 않은가?
+- 핵심 가정이 증명되지 않았는데 이미 사실처럼 취급되고 있지 않은가?
+- 실제 증거와 추정이 구분되어 있는가?
 
-## Failure And Cost
+### 3. Leaner Alternative
 
-- Where does this fail first?
-- What is the long-term maintenance cost if it succeeds?
+- 이 접근이 다른 접근보다 실제로 나은 이유가 있는가?
+- 더 싸고 빠르고 reversible 한 대안이 있는데 무시하고 있지 않은가?
+- 무언가를 더하는 대신 제거해서 같은 목적을 달성할 수 없는가?
+
+### 4. Failure and Cost
+
+- 실패하면 어디서 가장 먼저 무너지는가?
+- 사용자, 운영, 일정, 품질, 신뢰 측면에서 가장 비싼 리스크는 무엇인가?
+- 초기 구현보다 유지비가 더 큰 선택은 아닌가?
+
+### 5. Commitment Level
+
+- 이 방향을 지금 고정할 만큼 근거가 충분한가?
+- 아직 불확실성이 높은데 too-early optimization 또는 too-early standardization 을 하고 있지 않은가?
+- reversible 하게 나눠서 실행할 수는 없는가?
+
+## When Thinker Depth Matters
+
+아래 신호가 보이면 `decision-brake-thinker`를 통한 심층 사고를 고려합니다.
+
+- 기본 브레이크만으로는 판단 근거가 얕다
+- 문제 구조가 복합적이라 다른 프레임으로 다시 봐야 한다
+- 2차 효과, 시스템 상호작용, 장기 비용이 중요하다
+- 문제를 더 근본 단위로 다시 쪼개야 한다
+
+## When Reviewer Depth Matters
+
+아래 신호가 보이면 `decision-brake-reviewer`를 통한 독립 2차 검토를 고려합니다.
+
+- 되돌리기 어려운 고비용 결정이다
+- 현재 팀이나 제안자의 확신이 지나치게 강하다
+- 메인 판단이나 thinker 산출물의 과신 위험이 있다
+- 사용자가 생각의 외주나 독립된 시각을 명시적으로 원한다
+
+## Thinker Deepening Angles
+
+아래 사고법은 주로 `decision-brake-thinker`가 심층 사고에 사용합니다.
+
+### First Principles
+
+- 지금 제안은 가정 위에 올라가 있는가, 아니면 더 근본 단위까지 내려갔는가?
+- 익숙한 관습을 제거하면 무엇이 남는가?
+
+### Systems Thinking
+
+- 이 선택이 다른 시스템 요소와 어떻게 상호작용하는가?
+- 국소 최적화가 전체 최적화를 해치고 있지 않은가?
+- 어떤 피드백 루프나 전이효과가 생기는가?
+
+### Second-Order Thinking
+
+- 당장의 이득 뒤에 오는 다음 비용은 무엇인가?
+- 성공했을 때조차 운영 비용이나 복잡도가 커지는가?
+
+### Inversion
+
+- 이 결정을 통해 실패하려면 어떤 일이 벌어져야 하는가?
+- 스스로 함정에 빠지게 만드는 선택은 무엇인가?
+
+## Reviewer Focus
+
+`decision-brake-reviewer`는 thinker 처럼 사고를 확장하는 역할이 아니라, 아래를 검토하는 데 집중합니다.
+
+- 메인 판단의 논리적 비약
+- thinker 산출물의 과장, 과신, 근거 부족
+- 여전히 남아 있는 더 단순한 대안
+- 제거하거나 보류해야 할 요소
+- 지금 결정을 고정하는 것의 비용
+
+## Suggested Review Moves
+
+- 가장 치명적인 가정 1개를 먼저 겨냥합니다.
+- "무엇을 더할까?" 대신 "무엇을 제거하면 같은 효과가 나나?"를 먼저 묻습니다.
+- 현재안, 더 lean 한 안, 더 flexible 한 안을 나란히 둡니다.
+- 구조가 복합적이면 thinker 를 붙입니다.
+- 되돌리기 어렵거나 편향 위험이 크면 reviewer 를 붙입니다.
+- 사용자가 "심층 리뷰", "생각의 외주", "깊게 생각해봐", "다른 시각까지 검토해줘" 같은 표현으로 명시적으로 요청하면 thinker 와 reviewer 를 모두 붙입니다.
+- 마지막에는 반드시 명확한 brake level 을 냅니다.
