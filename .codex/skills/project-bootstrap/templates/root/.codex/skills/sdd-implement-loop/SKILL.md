@@ -21,9 +21,9 @@ You must orchestrate the following workflow in a strict loop until all implement
 1. Read the core specification documents: `spec.md`, `plan.md`, `tasks.md`, `design.md`, `research.md`.
 2. Ensure you understand the overall architecture, tech stack constraints (from `plan.md` and `design.md`), and the specific properties to satisfy (from `spec.md`).
 
-### Step 2: Write All Tests Upfront (QA Engineer - Batch Generation)
+### Step 2: Write All Tests Upfront (QA Prep - Batch Generation)
 1. **Goal**: Before any implementation logic is written, generate the **entire suite of tests** covering ALL tasks defined in `tasks.md`, and produce the canonical task-to-test mapping manifest `specs/[spec-name]/qa_mapping.md`.
-2. **Execution**: Delegate to the `@qa-engineer` agent.
+2. **Execution**: Use the `qa-prep` skill as the canonical QA preparation workflow. Apply it with the `Scenario expansion lens`, `QA generation lens`, and `Testing-review lens` in that order.
 3. **Constraint Check**: You ONLY write test code. DO NOT write or modify application core logic files yet.
 4. Base your imports, class names, method names, and payloads strictly on `design.md`, `plan.md`, and `contracts/`. If details are missing, STOP and route back to the planning/specification loop to close the ambiguity before writing more tests. Do not invent new interfaces in this implementation phase.
 5. Execute the test suite (e.g., `pytest` or `npx playwright test`) to confirm that **all** generated tests currently fail (Red phase of TDD) due to missing implementation or import errors.

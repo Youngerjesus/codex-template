@@ -124,7 +124,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 8. Implementation execution rules (CRITICAL Constraints):
    - **Setup First**: Initialize project structure, dependencies, configuration if needed.
-   - **Follow QA's Lead**: You MUST use the exact class names, method names, payload structures, and return types that the `qa-engineer` defined in their tests. Do not invent your own interface if the test demands a specific one.
+   - **Follow QA's Lead**: You MUST use the exact class names, method names, payload structures, and return types defined by the `qa-prep` workflow in its generated tests and `qa_mapping.md`. Do not invent your own interface if the test demands a specific one.
    - **Minimum Code + Compliance**: Only write the code necessary to make the tests pass (Green phase of TDD), BUT you must rigorously ensure that the implementation completely satisfies all requirements defined in `spec.md` and `design.md`.
    - **Do not write new tests**: Your job is to implement the core logic to make existing tests pass. Do not write or modify test code unless absolutely necessary (e.g., to fix syntactical errors preventing compilation).
    - **Domain Constraints**: Strictly implement domain-specific complexities (e.g., AI prompt templates, context management, strict financial rules) exactly as defined in `design.md`.
