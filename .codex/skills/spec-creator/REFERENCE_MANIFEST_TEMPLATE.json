@@ -1,0 +1,23 @@
+{
+  "name": "[feature-name]",
+  "routes": [
+    {
+      "route": "/example",
+      "fixture": "[deterministic-fixture-name]",
+      "ready_state": "[stable-ready-state-description]",
+      "animations": "disabled",
+      "interactions": [],
+      "source_hints": [
+        "project_manager/specs/[feature-name]/references/[reference-file]"
+      ],
+      "reference_images": [
+        {
+          "id": "[reference-image-id]",
+          "path": "project_manager/specs/[feature-name]/references/[reference-file]",
+          "viewport": "390x844",
+          "mask_regions": []
+        }
+      ]
+    }
+  ]
+}

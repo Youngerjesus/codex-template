@@ -1,6 +1,7 @@
 # Definition of Done (DoD): [기능 명칭] ([ID])
 
 > **Contract Purpose**: 이 문서는 구현 완료를 판단하는 엄격한 기준(Acceptance Criteria)을 정의합니다. 모든 체크리스트 항목은 **[구체적인 실행 명령]**, **[파일 경로/모듈명]**, 그리고 **[기대되는 상태값/종료 코드]**를 반드시 포함해야 합니다.
+> reference-driven visual 작업이면 같은 패키지의 `reference-manifest.json` 과 `references/` 가 approval source-of-truth 이며, required canonical image, deterministic capture state, reference asset path 를 계약에 명시해야 합니다.
 
 ## 1. Runtime & E2E Contracts (Most Important)
 - [ ] **엔드투엔드 실행**: [검증할 핵심 실행 명령과 기대되는 종료 코드 및 생성되어야 할 핵심 산출물을 명시하십시오.]

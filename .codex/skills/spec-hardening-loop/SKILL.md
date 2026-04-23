@@ -13,6 +13,7 @@ Use this skill when the user wants a spec package strengthened through the exist
 
 - Hardening an existing `project_manager/specs/[feature_name]/` package
 - Running the generator-evaluator loop on `spec.md` and `contracts.md`
+- Hardening a reference-driven visual spec package that also includes `reference-manifest.json` and `references/`
 - Resuming a partially completed spec loop run
 - Closing the last blocker findings after the loop stalls at the round limit
 
@@ -21,14 +22,15 @@ Use this skill when the user wants a spec package strengthened through the exist
 - Creating a brand-new spec package from scratch
 - Breaking approved specs into tasks
 - Implementing product code
-- Approving a spec without reading the current `spec.md`, `contracts.md`, and latest loop artifacts
+- Approving a spec without reading the current `spec.md`, `contracts.md`, and for visual specs the current `reference-manifest.json` plus `references/` inventory
 
 ## Operating Rules
 
 1. Treat `project_manager/spec_loop.py` as the authoritative loop engine.
    Do not copy its logic into the skill folder and do not create a shadow implementation.
 2. Limit document edits to the target package unless the user explicitly expands scope.
-3. Treat `project_manager/specs/[feature_name]/spec.md` and `project_manager/specs/[feature_name]/contracts.md` as the only approval boundary.
+3. Treat `project_manager/specs/[feature_name]/spec.md` and `project_manager/specs/[feature_name]/contracts.md` as the minimum approval boundary.
+   If the package is a visual spec bundle, include `reference-manifest.json` and `references/` in the approval boundary as well.
 4. Reuse `spec-reviewer` as the final approval standard.
    The fallback pass must close ambiguity, evidence gaps, and contract drift to that standard before approval.
 5. Do not mark a spec `Approved` by assertion alone.
@@ -37,7 +39,7 @@ Use this skill when the user wants a spec package strengthened through the exist
 ## Workflow
 
 1. Ground in the target package.
-   Read `spec.md`, `contracts.md`, and the current `**Status**:` line. Confirm the package lives under `project_manager/specs/[feature_name]/`.
+   Read `spec.md`, `contracts.md`, and the current `**Status**:` line. If the package is visual, also read `reference-manifest.json` and inspect `references/`. Confirm the package lives under `project_manager/specs/[feature_name]/`.
 2. Exit early for terminal packages.
    If `spec.md` is already in a terminal status such as `Approved` or `Completed`, stop after summarizing the current state.
 3. Run the authoritative loop.
@@ -47,7 +49,7 @@ Use this skill when the user wants a spec package strengthened through the exist
 5. Fallback on `max_rounds_exhausted`.
    If the loop stops without approval, switch to the final protocol in [fallback-approval-protocol.md](./references/fallback-approval-protocol.md).
 6. Finish with a strict re-read.
-   Re-read `spec.md` and `contracts.md` after fallback edits. Only then set `spec.md` to `Approved` and summarize whether approval came from the loop or the fallback pass.
+   Re-read `spec.md` and `contracts.md` after fallback edits. If the package is visual, re-read `reference-manifest.json` and check `references/` again. Only then set `spec.md` to `Approved` and summarize whether approval came from the loop or the fallback pass.
 
 ## Defaults
 
@@ -55,5 +57,5 @@ Use this skill when the user wants a spec package strengthened through the exist
 - Primary engine: `project_manager/spec_loop.py`
 - Default rounds: `10`
 - Required documents: `spec.md`, `contracts.md`
+- Visual bundle add-ons when applicable: `reference-manifest.json`, `references/`
 - Final standard: `spec-reviewer`
-

@@ -5,6 +5,7 @@
 **Status**: Draft / In-Review / Approved
 
 > **Notice**: [이 스펙과 관련된 전제 조건이나 타 스펙과의 경계, 혹은 히스토리에 대한 중요한 참고 사항을 적습니다.]
+> reference-driven visual 작업이면 같은 패키지의 `reference-manifest.json` 과 `references/` 를 함께 정의하고, canonical screenshot / similarity / reference parity 상태를 이 스펙과 일치시킵니다.
 
 ---
 
